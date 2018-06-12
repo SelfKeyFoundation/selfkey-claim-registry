@@ -13,8 +13,8 @@ regarded as the "claim subject".
 
 2. Only the original issuer of a given claim is able to remove it.
 
-3. Anyone can get a specific claim made by an _issuer_ about a _subject_ via the `getClaim` method,
-for verification purposes.
+3. Given a "key", anyone can get a specific claim made by an _issuer_ about a _subject_ via the
+`getClaim` method, for verification purposes.
 
 ## Development
 
