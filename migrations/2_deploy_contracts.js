@@ -1,6 +1,8 @@
-//const StakedAccess = artifacts.require('./StakedAccess.sol')
-const ClaimRegistry = artifacts.require("./ClaimRegistry.sol")
+const SelfKeyClaimRegistry = artifacts.require("./SelfKeyClaimRegistry.sol")
+const DIDLedger = artifacts.require("DIDLedger.sol")
 
 module.exports = deployer => {
-  deployer.deploy(ClaimRegistry)
+  deployer.deploy(DIDLedger).then(() => {
+    return deployer.deploy(SelfKeyClaimRegistry, DIDLedger.address)
+  })
 }
