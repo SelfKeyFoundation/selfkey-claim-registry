@@ -1,7 +1,7 @@
 {
   "name": "selfkey-claim-registry",
   "version": "1.0.0",
-  "description": "Implementation of standard ERC781 (claims registry) for Selfkey identities",
+  "description": "Implementation of claims registry for Selfkey identities",
   "author": "Carlos Bruguera <cbruguera@gmail.com>",
   "keywords": [
     "ERC",
