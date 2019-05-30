@@ -6,24 +6,30 @@ Public claim registry for Selfkey DIDs
 
 ## Overview
 
-The `ClaimRegistry` contract provides the following functionality.
+The `SelfKeyClaimRegistry` smart contract is a [ERC780](https://github.com/ethereum/EIPs/issues/780)-based implementation for storing public claims on-chain, with the following differences:
 
-1. Addresses are able to set any (32 byte) key-value associated with an arbitrary address which is
-regarded as the "claim subject".
+* Subject of a claim is a `bytes32` value, allowing arbitrary "things" to be the subject of a claim (e.g. a
+hash of something, or a DID under the [SelfKey DID method](https://github.com/SelfKeyFoundation/selfkey-did-ledger))
+* Claim issuer is _required_ to have a DID registered on the DID Ledger contract
+* Transaction sender address for claim issuance and removal _must_ be equal to the DID controller specified
 
-2. Only the original issuer of a given claim is able to remove it.
+**Development Notes**:
 
-3. Given a "key", anyone can get a specific claim made by an _issuer_ about a _subject_ via the
-`getClaim` method, for verification purposes.
+* No expiration data is associated with claims, this could be implemented by having _value_ be a `struct` that
+wraps the bytes32 value and other needed data such as expiration date.
+* No permissioning schemes are implemented on this claims registry contract. Claim issuance is public.
+* It's recommended to implement any additional customizations (e.g. permissioning, etc.) as smart contracts
+inheriting from the basic registry.
+
 
 ## Development
 
-All smart contracts are being implemented in Solidity `0.4.23`.
+All smart contracts are being implemented in Solidity `0.5.4`.
 
 ### Prerequisites
 
-* [NodeJS](htps://nodejs.org), version 9.5+ (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
-* [truffle](http://truffleframework.com/), which is a comprehensive framework for Ethereum development. `npm install -g truffle` — this should install Truffle v4+.  Check that with `truffle version`.
+* [NodeJS](htps://nodejs.org), version 9.5+
+* [truffle](http://truffleframework.com/), which is a comprehensive framework for Ethereum development. `npm install -g truffle` — this should install the latest version.
 
 ### Initialization
 
@@ -31,11 +37,15 @@ All smart contracts are being implemented in Solidity `0.4.23`.
 
 ### Testing
 
+Truffle testing requires a `ganache-cli` instance running. In a different terminal window, execute:
+
+    ganache-cli
+
 #### Standalone
 
     npm test
 
-or with code coverage
+or with code coverage (doesn't require ganache-cli)
 
     npm run test:cov
 
