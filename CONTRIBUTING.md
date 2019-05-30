@@ -1,23 +1,20 @@
 # How to contribute to this project
 
-## Development Environment
-
-All development is assumed to be done on a Mac running a modern version of OS X but ought to be pretty much the same no matter what unixy environment you use.
-
 ## Development Process
 
-All development is to follow the [standard git-flow](http://nvie.com/posts/a-successful-git-branching-model/) process, modified to allow for code-reviews.
+All development should follow the [standard git-flow](http://nvie.com/posts/a-successful-git-branching-model/) process, modified to allow for code-reviews.
 
-See this handy, if ugly, [cheat sheet](http://danielkummer.github.io/git-flow-cheatsheet/).
+For reference on git-flow commands, check out this [cheat sheet](http://danielkummer.github.io/git-flow-cheatsheet/).
 
 ### Setup
 
-1. Fork this repo into your personal GitHub account
-2. clone your fork to your local development machine
-3. Set this repo as the `upstream` repo `git remote add upstream <insert the upstream url>`
-4. Disallow direct pushing to upstream `git remote set-url --push upstream no_push`
-5. create a local `master` branch `git checkout -b master` and test it via `git pull upstream master`
-6. ensure you have installed the [`git-flow` command line helpers](https://github.com/nvie/gitflow) and [`git-flow-completion` utils](https://github.com/bobthecow/git-flow-completion) then run `git flow init -d`.
+1. if not done already, [install git flow](https://github.com/nvie/gitflow/wiki/Installation).
+2. fork this repo into your personal GitHub account
+3. clone your fork to your local development machine
+4. set this repo as the `upstream` repo `git remote add upstream <insert the upstream url>`
+5. disallow direct pushing to upstream `git remote set-url --push upstream no_push`
+6. create a local `master` branch `git checkout -b master` and test it via `git pull upstream master`
+7. run `git flow init -d`
 
 #### Optional Git Setup
 
@@ -39,9 +36,9 @@ git config user.email "username@domain.suffix"
 2. Now work on your changes locally until you are happy the issue is resolved. See below for how to name commit messages.
 3. `git flow feature publish {feature_name}` will push it back up to your fork on GitHub.
 4. Use `git flow feature pull {remote_name} {feature_name}` to bring in any other changes, If other people have also merged changes in, and you can't merge your PR automatically you'll need to `rebase` their changes into your changes and then `--force` push the resulting changes using standard `git` commands.
-5. Use GitHub to raise a Pull Request. Add labels as appropriate, and set one or more reviewers. Then paste the url of the PR into the `#development` Slack channel with a request for someone to please review the changes. See below for how to name pull requests.
+5. Use GitHub to raise a Pull Request. Add labels as appropriate, and set one or more reviewers if necessary. Then share the PR link in the proper channels to request for reviews.
 6. Respond to any comments as appropriate, making changes and `git push` ing further changes as appropriate.
-7. When all comments are dealt and the PR finally gets a :+1: from someone else then merge the PR. _Note we will not be using the `git flow feature finish`_ option as that merges into develop automatically without the option for review. [see this stackexchange for more on that](http://programmers.stackexchange.com/questions/187723/code-review-with-git-flow-and-github).
+7. When all comments are dealt and the PR finally gets a :+1: from the reviewers then merge the PR. _Note this scheme does not use the `git flow feature finish`_ option as that merges into develop automatically without the option for review. [see this stackexchange for more on that](http://programmers.stackexchange.com/questions/187723/code-review-with-git-flow-and-github).
 8. In your command-line `git checkout develop` then `git pull upstream develop` to get the latest code and `git branch -D feature/{branchname}` to delete the old feature branch.
 
 #### Hotfixes and Support branches
@@ -56,7 +53,7 @@ It's basically the same process but use the word `hotfix` or `support` instead o
 4. Now go back to GitHub and raise a Pull Request to merge the upstream master from your fork's `master` branch. When that goes through you are done.
 5. In your command-line go back and clean up any outstanding branches and `git pull upstream` your local `master` and `develop` branches to ensure everything on your local machine is up to date with everyone's changes.
 
-Note you will **never** push changes directly to the upstream project, *only to your own fork*.
+Note you should **never** push changes directly to the upstream project, *only to your own fork*.
 
 **Changes may only be introduced into the upstream project via a properly reviewed pull request.**
 
@@ -85,8 +82,13 @@ Pull requests must be named as follows `[issue type, issue number] high level de
 * `Bug Fix` - the change fixes a bug
 * `Feature` - the change adds a new feature (the usual issue type)
 * `Documentation` — The change is a documentation only change
-* `Optimisation` - The change is an optimisation of the code base without any functional changes
 
-If your change does not fit any of these categories, use `Feature`. Likewise if your change is not tied to an issue number you may use `n/a` instead.
+Other categories might be defined according to each project specific needs.
 
-So to use the above example your Pull Request would be named `[Feature, ABC-1] added anteater to aardvark`
+Example:  
+
+`[Feature, ABC-1] added important method to main contract.`
+
+### Unit tests
+
+All PRs including changes in code should address the related functionalities through proper unit testing. Ideally, code coverage should be kept at 100%.
