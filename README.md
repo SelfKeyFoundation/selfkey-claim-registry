@@ -1,8 +1,8 @@
 # selfkey-claim-registry
 Public claim registry for Selfkey DIDs
 
-* `develop` — [![CircleCI](https://circleci.com/gh/SelfKeyFoundation/selfkey-claim-registry/tree/develop.svg?style=svg)](https://circleci.com/gh/SelfKeyFoundation/selfkey-claim-registry/tree/develop) [![codecov](https://codecov.io/gh/SelfKeyFoundation/selfkey-claim-registry/branch/develop/graph/badge.svg)](https://codecov.io/gh/SelfKeyFoundation/selfkey-claim-registry)
-* `master` — [![CircleCI](https://circleci.com/gh/SelfKeyFoundation/selfkey-claim-registry/tree/master.svg?style=svg)](https://circleci.com/gh/SelfKeyFoundation/selfkey-claim-registry/tree/master) [![codecov](https://codecov.io/gh/SelfKeyFoundation/selfkey-claim-registry/branch/master/graph/badge.svg)](https://codecov.io/gh/SelfKeyFoundation/selfkey-claim-registry)
+* `develop` — <!--[![CircleCI](https://circleci.com/gh/SelfKeyFoundation/selfkey-claim-registry/tree/develop.svg?style=svg)](https://circleci.com/gh/SelfKeyFoundation/selfkey-claim-registry/tree/develop)--> [![codecov](https://codecov.io/gh/SelfKeyFoundation/selfkey-claim-registry/branch/develop/graph/badge.svg)](https://codecov.io/gh/SelfKeyFoundation/selfkey-claim-registry)
+* `master` — <!--[![CircleCI](https://circleci.com/gh/SelfKeyFoundation/selfkey-claim-registry/tree/master.svg?style=svg)](https://circleci.com/gh/SelfKeyFoundation/selfkey-claim-registry/tree/master)--> [![codecov](https://codecov.io/gh/SelfKeyFoundation/selfkey-claim-registry/branch/master/graph/badge.svg)](https://codecov.io/gh/SelfKeyFoundation/selfkey-claim-registry)
 
 ## Overview
 
